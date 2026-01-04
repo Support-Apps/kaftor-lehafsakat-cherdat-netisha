@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💜 טיפול מיידי בחרדת נטישה</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Heebo', sans-serif;
+        }
+        
+        body {
+            background: #FFF5F7;
+            min-height: 100vh;
+            color: #333;
+            padding: 20px;
+            padding-bottom: 100px;
+        }
+        
+        .header {
+            text-align: center;
+            padding: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .header h1 {
+            font-size: 1.8em;
+            color: #D4A574;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            color: #888;
+            font-size: 1.1em;
+        }
+        
+        .icon-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .main-icon {
+            font-size: 70px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        .emergency-btn {
+            display: block;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto 20px;
+            padding: 25px;
+            background: #FFB6C1;
+            border: none;
+            border-radius: 20px;
+            color: #fff;
+            font-size: 1.4em;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(255, 182, 193, 0.4);
+            transition: all 0.3s ease;
+        }
+        
+        .emergency-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(255, 182, 193, 0.5);
+        }
+        
+        .section-title {
+            text-align: center;
+            color: #D4A574;
+            font-size: 1.2em;
+            margin: 25px 0 15px;
+            padding: 10px;
+            background: #fff;
+            border-radius: 15px;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .buttons-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            max-width: 400px;
+            margin: 0 auto 20px;
+        }
+        
+        .power-button {
+            background: #fff;
+            border: 2px solid #FFB6C1;
+            border-radius: 15px;
+            padding: 15px 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .power-button:hover {
+            transform: translateY(-2px);
+            background: #FFF0F3;
+        }
+        
+        .power-button.mint { border-color: #B8E6D4; }
+        .power-button.gold { border-color: #D4A574; }
+        
+        .button-icon {
+            font-size: 35px;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .button-title {
+            font-size: 0.95em;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: #FFF5F7;
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .overlay.active {
+            display: flex;
+        }
+        
+        .overlay-content {
+            text-align: center;
+            max-width: 350px;
+            width: 100%;
+        }
+        
+        .close-overlay {
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            background: #FFB6C1;
+            border: none;
+            color: #fff;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        
+        .animation-icon {
+            font-size: 70px;
+            margin-bottom: 20px;
+        }
+        
+        .animation-text {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            min-height: 50px;
+            color: #333;
+            line-height: 1.5;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background: #FFE4EC;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-bottom: 25px;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            width: 0%;
+            border-radius: 5px;
+            transition: width 0.5s ease;
+            background: #FFB6C1;
+        }
+        
+        .install-btn {
+            background: #FFB6C1;
+            border: none;
+            color: #fff;
+            padding: 15px 35px;
+            border-radius: 25px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .install-btn:hover {
+            transform: scale(1.05);
+        }
+        
+        .install-btn:disabled {
+            background: #ddd;
+            cursor: not-allowed;
+        }
+        
+        .completion-message {
+            display: none;
+            padding: 20px;
+            background: #fff;
+            border: 2px solid #B8E6D4;
+            border-radius: 15px;
+            margin-top: 20px;
+        }
+        
+        .completion-message.show {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .affirmation-box {
+            background: #fff;
+            border: 2px solid #B8E6D4;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 400px;
+            text-align: center;
+        }
+        
+        .affirmation-box p {
+            font-size: 1.1em;
+            color: #555;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>💜 טיפול מיידי בחרדת נטישה</h1>
+        <p>את שלמה בפני עצמך</p>
+    </div>
+    
+    <div class="icon-container">
+        <span class="main-icon">🫂</span>
+    </div>
+    
+    <button class="emergency-btn" onclick="startProcess('emergency')">
+        🛑 הפסקת חרדת נטישה עכשיו
+    </button>
+    
+    <div class="affirmation-box">
+        <p>💜 אני שלמה גם לבד<br>
+        אני לא צריכה אף אחד כדי להיות שלמה<br>
+        אני בוחרת להישאר מתוך רצון, לא מתוך פחד</p>
+    </div>
+    
+    <div class="section-title">🗑️ הסרות</div>
+    <div class="buttons-grid">
+        <div class="power-button" onclick="startProcess('fearAlone')">
+            <span class="button-icon">😰</span>
+            <div class="button-title">פחד להישאר לבד</div>
+        </div>
+        <div class="power-button mint" onclick="startProcess('fearUnlovable')">
+            <span class="button-icon">💔</span>
+            <div class="button-title">פחד שלא אהובה</div>
+        </div>
+        <div class="power-button gold" onclick="startProcess('needValidation')">
+            <span class="button-icon">🔍</span>
+            <div class="button-title">צורך באישור חיצוני</div>
+        </div>
+        <div class="power-button" onclick="startProcess('panicLeaving')">
+            <span class="button-icon">🚨</span>
+            <div class="button-title">פאניקה כשעוזבים</div>
+        </div>
+        <div class="power-button mint" onclick="startProcess('clinging')">
+            <span class="button-icon">🤝</span>
+            <div class="button-title">היאחזות יתר</div>
+        </div>
+        <div class="power-button gold" onclick="startProcess('worthless')">
+            <span class="button-icon">🚫</span>
+            <div class="button-title">תחושת חוסר ערך</div>
+        </div>
+        <div class="power-button" onclick="startProcess('fearRejection')">
+            <span class="button-icon">✋</span>
+            <div class="button-title">פחד מדחיה</div>
+        </div>
+    </div>
+    
+    <div class="section-title">🗑️ הסרות נוספות</div>
+    <div class="buttons-grid">
+        <div class="power-button gold" onclick="startProcess('selfWorth')">
+            <span class="button-icon">💎</span>
+            <div class="button-title">הסרת חוסר ערך עצמי</div>
+        </div>
+        <div class="power-button" onclick="startProcess('selfLove')">
+            <span class="button-icon">💗</span>
+            <div class="button-title">הסרת חוסר אהבה עצמית</div>
+        </div>
+        <div class="power-button mint" onclick="startProcess('innerSafety')">
+            <span class="button-icon">🏠</span>
+            <div class="button-title">הסרת חוסר ביטחון פנימי</div>
+        </div>
+        <div class="power-button gold" onclick="startProcess('wholeness')">
+            <span class="button-icon">⭕</span>
+            <div class="button-title">הסרת תחושת חוסר שלמות</div>
+        </div>
+    </div>
+    
+    <div class="section-title">💔 דפוסים הרסניים בזוגיות</div>
+    <div class="buttons-grid">
+        <div class="power-button" onclick="startProcess('badPartners')">
+            <span class="button-icon">🚷</span>
+            <div class="button-title">בחירת בני זוג לא טובים</div>
+        </div>
+        <div class="power-button mint" onclick="startProcess('overGiving')">
+            <span class="button-icon">🎁</span>
+            <div class="button-title">נתינה מוגזמת</div>
+        </div>
+        <div class="power-button gold" onclick="startProcess('peoplePleasing')">
+            <span class="button-icon">🙇</span>
+            <div class="button-title">ריצוי מוגזם</div>
+        </div>
+        <div class="power-button" onclick="startProcess('suspicion')">
+            <span class="button-icon">🔎</span>
+            <div class="button-title">חשדנות</div>
+        </div>
+        <div class="power-button mint" onclick="startProcess('stalking')">
+            <span class="button-icon">👁️</span>
+            <div class="button-title">מעקב</div>
+        </div>
+        <div class="power-button gold" onclick="startProcess('emotionalDependency')">
+            <span class="button-icon">⛓️</span>
+            <div class="button-title">תלות רגשית</div>
+        </div>
+        <div class="power-button" onclick="startProcess('losingMyself')">
+            <span class="button-icon">👻</span>
+            <div class="button-title">איבוד עצמי בזוגיות</div>
+        </div>
+        <div class="power-button mint" onclick="startProcess('jealousy')">
+            <span class="button-icon">💚</span>
+            <div class="button-title">קנאה חולנית</div>
+        </div>
+    </div>
+    
+    <button class="emergency-btn" style="margin-top: 20px; background: #D4A574;" onclick="startProcess('allPatterns')">
+        🛑 הפסקת כל הדפוסים ההרסניים
+    </button>
+
+    <!-- Emergency Overlay -->
+    <div class="overlay" id="emergencyOverlay">
+        <button class="close-overlay" onclick="closeOverlay('emergency')">✕</button>
+        <div class="overlay-content">
+            <div class="animation-icon" id="emergencyIcon">🛑</div>
+            <div class="animation-text" id="emergencyText">מזהה את חרדת הנטישה...</div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="emergencyProgress"></div>
+            </div>
+            <button class="install-btn" id="emergencyBtn" onclick="runProcess('emergency')">🛑 התחל/י הפסקה</button>
+            <div class="completion-message" id="emergencyComplete">
+                <p style="font-size: 1.2em; margin-bottom: 10px; color: #D4A574;">✅ חרדת הנטישה הופסקה!</p>
+                <p style="color: #666;">את שלמה. את בטוחה. את אהובה.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fear Alone Overlay -->
+    <div class="overlay" id="fearAloneOverlay">
+        <button class="close-overlay" onclick="closeOverlay('fearAlone')">✕</button>
+        <div class="overlay-content">
+            <div class="animation-icon" id="fearAloneIcon">😰</div>
+            <div class="animation-text" id="fearAloneText">מזהה את הפחד להישאר לבד...</div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="fearAloneProgress"></div>
+            </div>
+            <button class="install-btn" id="fearAloneBtn" onclick="runProcess('fearAlone')">🗑️ התחל/י הסרה</button>
+            <div class="completion-message" id="fearAloneComplete">
+                <p style="font-size: 1.2em; margin-bottom: 10px; color: #D4A574;">✅ הפחד להישאר לבד הוסר!</p>
+                <p style="color: #666;">להיות לבד זה לא להיות בודדה.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fear Unlovable Overlay -->
+    <div class="overlay" id="fearUnlovableOverlay">
+        <button class="close-overlay" onclick="closeOverlay('fearUnlovable')">✕</button>
+        <div class="overlay-content">
+            <div class="animation-icon" id="fearUnlovableIcon">💔</div>
+            <div class="animation-text" id="fearUnlovableText">מזהה את הפחד שלא אהובה...</div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="fearUnlovableProgress"></div>
+            </div>
+            <button class="install-btn" id="fearUnlovableBtn" onclick="runProcess('fearUnlovable')">🗑️ התחל/י הסרה</button>
+            <div class="completion-message" id="fearUnlovableComplete">
+                <p style="font-size: 1.2em; margin-bottom: 10px; color: #D4A574;">✅ הפחד שלא אהובה הוסר!</p>
+                <p style="color: #666;">את ראויה לאהבה תמיד.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Need Validation Overlay -->
+    <div class="overlay" id="needValidationOverlay">
+        <button class="close-overlay" onclick="closeOverlay('needValidation')">✕</button>
+        <div class="overlay-content">
+            <div class="animation-icon" id="needValidationIcon">🔍</div>
+            <div class="animation-text" id="needValidationText">מזהה את הצורך באישור חיצוני...</div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="needValidationProgress"></div>
+            </div>
+            <button class="install-btn" id="needValidationBtn" onclick="runProcess('needValidation')">🗑️ התחל/י הסרה</button>
+            <div class="completion-message" id="needValidationComplete">
+                <p style="font-size: 1.2em; margin-bottom: 10px; color: #D4A574;">✅ הצורך באישור חיצוני הוסר!</p>
+                <p style="color: #666;">את מאשרת את עצמך.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Panic Leaving Overlay -->
+    <div class="overlay" id="panicLeavingOverlay">
+        <button class="close-overlay" onclick="closeOverlay('panicLeaving')">✕</button>
+        <div class="overlay-content">
+            <div class="animation-icon" id="panicLeavingIcon">🚨</div>
+            <div class="animation-text" id="panicLeavingText">מזהה את הפאניקה כשעוזבים...</div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="panicLeavingProgress"></div>
+            </div>
+            <button class="install-btn" id="panicLeavingBtn" onclick="runProcess('panicLeaving')">🗑️ התחל/י הסרה</button>
+            <div class="completion-message" id="panicLeavingComplete">
+                <p style="font-size: 1.2em; margin-bottom: 10px; color: #D4A574;">✅ הפאניקה הוסרה!</p>
+                <p style="color: #666;">את יכולה לשרוד כל פרידה.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Clinging Overlay -->
+    <div class="overlay" id="clingingOverlay">
+        <button class="close-overlay" onclick="closeOverlay('clinging')">✕</button>
+        <div class="overlay-content">
+            <div class="animation-icon" id="clingingIcon">🤝</div>
+            <div class="animation-text" id="clingingText">מזהה את ההיאחזות...</div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="clingingProgress"></div>
+            </div>
+            <button class="install-btn" id="clingingBtn" onclick="runProcess('clinging')">🗑️ התחל/י הסרה</button>
+            <div class="completion-message" id="clingingComplete">
+                <p style="font-size: 1.2em; margin-bottom: 10px; color: #D4A574;">✅ ההיאחזות הוסרה!</p>
+                <p style="color: #666;">את יכולה לאהוב בלי להיאחז.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Worthless Overlay -->
+    <div class="overlay" id="worthlessOverlay">
+        <button class="close-overlay" onclick="closeOverlay('worthless')">✕</button>
+        <div class="overlay-content">
+            <div class="animation-icon" id="worthlessIcon">🚫</div>
+            <div class="animation-text" id="worthlessText">מזהה את תחושת חוסר הערך...</div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="worthlessProgress"></div>
+            </div>
+            <button class="install-btn" id="worthlessBtn" onclick="runProcess('worthless')">🗑️ התחל/י הסרה</button>
+            <div class="completion-message" id="worthlessComplete">
+                <p style="font-size: 1.2em; margin-bottom: 10px; color: #D4A574;">✅ תחושת חוסר הערך הוסרה!</p>
+                <p style="color: #666;">יש לך ערך אינסופי.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fear Rejection Overlay -->
+    <div class="overlay" id="fearRejectionOverlay">
+        <button class="close-overlay" onclick="closeOverlay('fearRejection')">✕</button>
+        <div class="overlay-content">
+            <div class="animation-icon" id="fearRejectionIcon">✋</div>
+            <div class="animation-text" id="fearRejectionText">מזהה את הפחד מדחיה...</div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="fearRejectionProgress"></div>
+            </div>
+            <button class="install-btn" id="fearRejectionBtn" onclick="runProcess('fearRejection')">🗑️ התחל/י הסרה</button>
+            <div class="completion-message" id="fearRejectionComplete">
+                <p style="font-size: 1.2em; margin-bottom: 10px; color: #D4A574;">✅ הפחד מדחיה הוסר!</p>
+                <p style="color: #666;">דחיה היא לא אסון, היא הכוונה.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Self Worth Overlay -->
+    <div class="overlay" id="selfWorthOverlay">
+        <button class="close-overlay" onclick="closeOverlay('selfWorth')">✕</button>
+        <div class="overlay-content">
+            <div class="animation-icon" id="selfWorthIcon">💎</div>
+            <div class="animation-text" id="selfWorthText">מזהה את חוסר הערך העצמי...</div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="selfWorthProgress"></div>
+            </div>
+            <button class="install-btn" id="selfWorthBtn" onclick="runProcess('selfWorth')">🗑️ התחל/י הסרה</button>
+            <div class="completion-message" id="selfWorthComplete">
+                <p style="font-size: 1.2em; margin-bottom: 10px; color: #D4A574;">✅ חוסר הערך העצמי הוסר!</p>
+                <p style="color: #666;">הערך שלך לא תלוי באף אחד.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Self Love Overlay -->
+    <div class="overlay" id="selfLoveOverlay">
+        <button class="close-overlay" onclick="closeOverlay('selfLove')">✕</button>
+        <div class="overlay-content">
+            <div class="animation-icon" id="selfLoveIcon">💗</div>
+            <div class="animation-text" id="selfLoveText">מזהה את חוסר האהבה העצמית...</div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="selfLoveProgress"></div>
+            </div>
+            <button class="install-btn" id="selfLoveBtn" onclick="runProcess('selfLove')">🗑️ התחל/י הסרה</button>
+            <div class="completion-message" id="selfLoveComplete">
+                <p style="font-size: 1.2em; margin-bottom: 10px; color: #D4A574;">✅ חוסר האהבה העצמית הוסר!</p>
+                <p style="color: #666;">את אוהבת את עצמך ללא תנאי.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Inner Safety Overlay -->
+    <div class="overlay" id="innerSafetyOverlay">
+        <button class="close-overlay" onclick="closeOverlay('innerSafety')">✕</button>
+        <div class="overlay-content">
+            <div class="animation-icon" id="innerSafetyIcon">🏠</div>
+            <div class="animation-text" id="innerSafetyText">מזהה את חוסר הביטחון הפנימי...</div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="innerSafetyProgress"></div>
+            </div>
+            <button class="install-btn" id="innerSafetyBtn" onclick="runProcess('innerSafety')">🗑️ התחל/י הסרה</button>
+            <div class="completion-message" id="innerSafetyComplete">
+                <p style="font-size: 1.2em; margin-bottom: 10px; color: #D4A574;">✅ חוסר הביטחון הפנימי הוסר!</p>
+                <p style="color: #666;">הבית שלך הוא בתוכך.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Wholeness Overlay -->
+    <div class="overlay" id="wholenessOverlay">
+        <button class="close-overlay" onclick="closeOverlay('wholeness')">✕</button>
+        <div class="overlay-content">
+            <div class="animation-icon" id="wholenessIcon">⭕</div>
+            <div class="animation-text" id="wholenessText">מזהה את תחושת חוסר השלמות...</div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="wholenessProgress"></div>
+            </div>
+            <button class="install-btn" id="wholenessBtn" onclick="runProcess('wholeness')">🗑️ התחל/י הסרה</button>
+            <div class="completion-message" id="wholenessComplete">
+                <p style="font-size: 1.2em; margin-bottom: 10px; color: #D4A574;">✅ תחושת חוסר השלמות הוסרה!</p>
+                <p style="color: #666;">את שלמה בפני עצמך. תמיד היית.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bad Partners Overlay -->
+    <div class="overlay" id="badPartnersOverlay">
+        <button class="close-overlay" onclick="closeOverlay('badPartners')">✕</button>
+        <div class="overlay-content">
+            <div class="animation-icon" id="badPartnersIcon">🚷</div>
+            <div class="animation-text" id="badPartnersText">מזהה את דפוס בחירת בני זוג לא טובים...</div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="badPartnersProgress"></div>
+            </div>
+            <button class="install-btn" id="badPartnersBtn" onclick="runProcess('badPartners')">🗑️ התחל/י הסרה</button>
+            <div class="completion-message" id="badPartnersComplete">
+                <p style="font-size: 1.2em; margin-bottom: 10px; color: #D4A574;">✅ הדפוס הוסר לגמרי!</p>
+                <p style="color: #666;">את בוחרת מתוך ערך עצמי ואהבה.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Over Giving Overlay -->
+    <div class="overlay" id="overGivingOverlay">
+        <button class="close-overlay" onclick="closeOverlay('overGiving')">✕</button>
+        <div class="overlay-content">
+            <div class="animation-icon" id="overGivingIcon">🎁</div>
+            <div class="animation-text" id="overGivingText">מזהה את הנתינה המוגזמת...</div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="overGivingProgress"></div>
+            </div>
+            <button class="install-btn" id="overGivingBtn" onclick="runProcess('overGiving')">🗑️ התחל/י הסרה</button>
+            <div class="completion-message" id="overGivingComplete">
+                <p style="font-size: 1.2em; margin-bottom: 10px; color: #D4A574;">✅ הנתינה המוגזמת הוסרה לגמרי!</p>
+                <p style="color: #666;">את נותנת מתוך שפע ואהבה.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- People Pleasing Overlay -->
+    <div class="overlay" id="peoplePleasingOverlay">
+        <button class="close-overlay" onclick="closeOverlay('peoplePleasing')">✕</button>
+        <div class="overlay-content">
+            <div class="animation-icon" id="peoplePleasingIcon">🙇</div>
+            <div class="animation-text" id="peoplePleasingText">מזהה את הריצוי המוגזם...</div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="peoplePleasingProgress"></div>
+            </div>
+            <button class="install-btn" id="peoplePleasingBtn" onclick="runProcess('peoplePleasing')">🗑️ התחל/י הסרה</button>
+            <div class="completion-message" id="peoplePleasingComplete">
+                <p style="font-size: 1.2em; margin-bottom: 10px; color: #D4A574;">✅ הריצוי המוגזם הוסר לגמרי!</p>
+                <p style="color: #666;">את חיה מתוך אותנטיות וכבוד עצמי.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Suspicion Overlay -->
+    <div class="overlay" id="suspicionOverlay">
+        <button class="close-overlay" onclick="closeOverlay('suspicion')">✕</button>
+        <div class="overlay-content">
+            <div class="animation-icon" id="suspicionIcon">🔎</div>
+            <div class="animation-text" id="suspicionText">מזהה את החשדנות...</div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="suspicionProgress"></div>
+            </div>
+            <button class="install-btn" id="suspicionBtn" onclick="runProcess('suspicion')">🗑️ התחל/י הסרה</button>
+            <div class="completion-message" id="suspicionComplete">
+                <p style="font-size: 1.2em; margin-bottom: 10px; color: #D4A574;">✅ החשדנות הוסרה לגמרי!</p>
+                <p style="color: #666;">את חיה מתוך אמון ושלווה.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stalking Overlay -->
+    <div class="overlay" id="stalkingOverlay">
+        <button class="close-overlay" onclick="closeOverlay('stalking')">✕</button>
+        <div class="overlay-content">
+            <div class="animation-icon" id="stalkingIcon">👁️</div>
+            <div class="animation-text" id="stalkingText">מזהה את הצורך במעקב...</div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="stalkingProgress"></div>
+            </div>
+            <button class="install-btn" id="stalkingBtn" onclick="runProcess('stalking')">🗑️ התחל/י הסרה</button>
+            <div class="completion-message" id="stalkingComplete">
+                <p style="font-size: 1.2em; margin-bottom: 10px; color: #D4A574;">✅ הצורך במעקב הוסר לגמרי!</p>
+                <p style="color: #666;">את מרגישה בטוחה מבפנים.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Emotional Dependency Overlay -->
+    <div class="overlay" id="emotionalDependencyOverlay">
+        <button class="close-overlay" onclick="closeOverlay('emotionalDependency')">✕</button>
+        <div class="overlay-content">
+            <div class="animation-icon" id="emotionalDependencyIcon">⛓️</div>
+            <div class="animation-text" id="emotionalDependencyText">מזהה את התלות הרגשית...</div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="emotionalDependencyProgress"></div>
+            </div>
+            <button class="install-btn" id="emotionalDependencyBtn" onclick="runProcess('emotionalDependency')">🗑️ התחל/י הסרה</button>
+            <div class="completion-message" id="emotionalDependencyComplete">
+                <p style="font-size: 1.2em; margin-bottom: 10px; color: #D4A574;">✅ התלות הרגשית הוסרה לגמרי!</p>
+                <p style="color: #666;">את שלמה ועצמאית רגשית.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Losing Myself Overlay -->
+    <div class="overlay" id="losingMyselfOverlay">
+        <button class="close-overlay" onclick="closeOverlay('losingMyself')">✕</button>
+        <div class="overlay-content">
+            <div class="animation-icon" id="losingMyselfIcon">👻</div>
+            <div class="animation-text" id="losingMyselfText">מזהה את איבוד העצמי בזוגיות...</div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="losingMyselfProgress"></div>
+            </div>
+            <button class="install-btn" id="losingMyselfBtn" onclick="runProcess('losingMyself')">🗑️ התחל/י הסרה</button>
+            <div class="completion-message" id="losingMyselfComplete">
+                <p style="font-size: 1.2em; margin-bottom: 10px; color: #D4A574;">✅ הדפוס הוסר לגמרי!</p>
+                <p style="color: #666;">את נשארת את תמיד.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Jealousy Overlay -->
+    <div class="overlay" id="jealousyOverlay">
+        <button class="close-overlay" onclick="closeOverlay('jealousy')">✕</button>
+        <div class="overlay-content">
+            <div class="animation-icon" id="jealousyIcon">💚</div>
+            <div class="animation-text" id="jealousyText">מזהה את הקנאה החולנית...</div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="jealousyProgress"></div>
+            </div>
+            <button class="install-btn" id="jealousyBtn" onclick="runProcess('jealousy')">🗑️ התחל/י הסרה</button>
+            <div class="completion-message" id="jealousyComplete">
+                <p style="font-size: 1.2em; margin-bottom: 10px; color: #D4A574;">✅ הקנאה החולנית הוסרה לגמרי!</p>
+                <p style="color: #666;">את בטוחה בערך הייחודי שלך.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- All Patterns Overlay -->
+    <div class="overlay" id="allPatternsOverlay">
+        <button class="close-overlay" onclick="closeOverlay('allPatterns')">✕</button>
+        <div class="overlay-content">
+            <div class="animation-icon" id="allPatternsIcon">🛑</div>
+            <div class="animation-text" id="allPatternsText">מזהה את כל הדפוסים ההרסניים...</div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="allPatternsProgress"></div>
+            </div>
+            <button class="install-btn" id="allPatternsBtn" onclick="runProcess('allPatterns')">🛑 התחל/י הפסקה</button>
+            <div class="completion-message" id="allPatternsComplete">
+                <p style="font-size: 1.2em; margin-bottom: 10px; color: #D4A574;">✅ כל הדפוסים ההרסניים הוסרו לגמרי!</p>
+                <p style="color: #666;">את בוחרת מתוך אהבה עצמית ושלמות.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const processStages = {
+            emergency: [
+                { percent: 10, text: '🛑 מזהה את חרדת הנטישה...', icon: '🛑' },
+                { percent: 20, text: '🗑️ מסירה את הפחד מנטישה...', icon: '🗑️' },
+                { percent: 30, text: '💨 משחררת את הפאניקה...', icon: '💨' },
+                { percent: 40, text: '🧹 מנקה את החרדה מהגוף...', icon: '🧹' },
+                { percent: 50, text: '✨ מסירה את האמונה "יעזבו אותי"...', icon: '✨' },
+                { percent: 60, text: '💜 מסירה את הפחד להישאר לבד...', icon: '💜' },
+                { percent: 70, text: '💎 מסירה את תחושת חוסר הערך...', icon: '💎' },
+                { percent: 80, text: '🏠 את הבית של עצמך...', icon: '🏠' },
+                { percent: 90, text: '⭕ את שלמה בפני עצמך...', icon: '⭕' },
+                { percent: 100, text: '✅ חרדת הנטישה הופסקה!', icon: '💜' }
+            ],
+            fearAlone: [
+                { percent: 10, text: '😰 מזהה את הפחד להישאר לבד...', icon: '😰' },
+                { percent: 20, text: '🔍 מאתרת את מקור הפחד...', icon: '🔍' },
+                { percent: 30, text: '👶 הילדה הפנימית פחדה להישאר לבד...', icon: '👶' },
+                { percent: 40, text: '🫂 מחבקת את הילדה הפנימית...', icon: '🫂' },
+                { percent: 50, text: '🗑️ מסירה את הפחד הישן...', icon: '🗑️' },
+                { percent: 60, text: '✨ להיות לבד זה לא להיות בודדה...', icon: '✨' },
+                { percent: 70, text: '💜 את יכולה ליהנות מהחברה של עצמך...', icon: '💜' },
+                { percent: 80, text: '🌸 בדידות זה רגש, לא מציאות...', icon: '🌸' },
+                { percent: 90, text: '💗 משלימה את הריפוי...', icon: '💗' },
+                { percent: 100, text: '✅ הפחד להישאר לבד הוסר!', icon: '😌' }
+            ],
+            fearUnlovable: [
+                { percent: 10, text: '💔 מזהה את הפחד שלא אהובה...', icon: '💔' },
+                { percent: 20, text: '🔍 מאתרת את השקר הזה...', icon: '🔍' },
+                { percent: 30, text: '📦 אוספת את כל הפעמים שהרגשת לא אהובה...', icon: '📦' },
+                { percent: 40, text: '🧹 מנקה את האמונה השקרית...', icon: '🧹' },
+                { percent: 50, text: '🗑️ מסירה את "אני לא אהובה"...', icon: '🗑️' },
+                { percent: 60, text: '✨ את ראויה לאהבה בדיוק כמו שאת...', icon: '✨' },
+                { percent: 70, text: '💜 אהבה אמיתית לא צריכה להרוויח...', icon: '💜' },
+                { percent: 80, text: '💗 מתקינה: "אני אהובה תמיד"...', icon: '💗' },
+                { percent: 90, text: '🌸 משלימה את הריפוי...', icon: '🌸' },
+                { percent: 100, text: '✅ הפחד שלא אהובה הוסר!', icon: '💕' }
+            ],
+            needValidation: [
+                { percent: 10, text: '🔍 מזהה את הצורך באישור חיצוני...', icon: '🔍' },
+                { percent: 20, text: '📦 מאתרת את מקור הצורך...', icon: '📦' },
+                { percent: 30, text: '👶 הילדה הפנימית חיפשה אישור...', icon: '👶' },
+                { percent: 40, text: '🫂 נותנת לה את האישור עכשיו...', icon: '🫂' },
+                { percent: 50, text: '🗑️ מסירה את התלות באישור חיצוני...', icon: '🗑️' },
+                { percent: 60, text: '✨ את מאשרת את עצמך...', icon: '✨' },
+                { percent: 70, text: '💎 הדעה שלך על עצמך היא החשובה...', icon: '💎' },
+                { percent: 80, text: '💗 מתקינה אישור עצמי פנימי...', icon: '💗' },
+                { percent: 90, text: '🌸 משלימה את הריפוי...', icon: '🌸' },
+                { percent: 100, text: '✅ הצורך באישור חיצוני הוסר!', icon: '💜' }
+            ],
+            panicLeaving: [
+                { percent: 10, text: '🚨 מזהה את הפאניקה כשעוזבים...', icon: '🚨' },
+                { percent: 20, text: '🔍 מאתרת את הטריגר...', icon: '🔍' },
+                { percent: 30, text: '👶 הילדה הפנימית חוותה נטישה...', icon: '👶' },
+                { percent: 40, text: '🫂 מרגיעה אותה: את לא לבד יותר...', icon: '🫂' },
+                { percent: 50, text: '🗑️ מסירה את תגובת הפאניקה...', icon: '🗑️' },
+                { percent: 60, text: '✨ עזיבה זמנית היא לא נטישה...', icon: '✨' },
+                { percent: 70, text: '💜 את יכולה לשרוד כל פרידה...', icon: '💜' },
+                { percent: 80, text: '💪 מתקינה חוסן רגשי...', icon: '💪' },
+                { percent: 90, text: '💗 משלימה את הריפוי...', icon: '💗' },
+                { percent: 100, text: '✅ הפאניקה הוסרה!', icon: '😌' }
+            ],
+            clinging: [
+                { percent: 10, text: '🤝 מזהה את ההיאחזות...', icon: '🤝' },
+                { percent: 20, text: '🔍 מאתרת את מקור ההיאחזות...', icon: '🔍' },
+                { percent: 30, text: '📦 אוספת את הפחד מאיבוד...', icon: '📦' },
+                { percent: 40, text: '🧹 מנקה את הצורך להיאחז...', icon: '🧹' },
+                { percent: 50, text: '🗑️ מסירה את ההיאחזות...', icon: '🗑️' },
+                { percent: 60, text: '✨ אהבה אמיתית לא צריכה היאחזות...', icon: '✨' },
+                { percent: 70, text: '🦋 משחררת בביטחון...', icon: '🦋' },
+                { percent: 80, text: '💜 מתקינה אהבה חופשית...', icon: '💜' },
+                { percent: 90, text: '💗 משלימה את הריפוי...', icon: '💗' },
+                { percent: 100, text: '✅ ההיאחזות הוסרה!', icon: '🦋' }
+            ],
+            worthless: [
+                { percent: 10, text: '🚫 מזהה את תחושת חוסר הערך...', icon: '🚫' },
+                { percent: 20, text: '🔍 מאתרת את השקר הזה...', icon: '🔍' },
+                { percent: 30, text: '📦 אוספת את כל הפעמים שהרגשת חסרת ערך...', icon: '📦' },
+                { percent: 40, text: '🧹 מנקה את האמונה השקרית...', icon: '🧹' },
+                { percent: 50, text: '🗑️ מסירה את "אין לי ערך"...', icon: '🗑️' },
+                { percent: 60, text: '✨ יש לך ערך אינסופי...', icon: '✨' },
+                { percent: 70, text: '💎 הערך שלך לא תלוי בהישגים...', icon: '💎' },
+                { percent: 80, text: '💗 מתקינה: "יש לי ערך רק כי אני קיימת"...', icon: '💗' },
+                { percent: 90, text: '🌸 משלימה את הריפוי...', icon: '🌸' },
+                { percent: 100, text: '✅ תחושת חוסר הערך הוסרה!', icon: '💎' }
+            ],
+            fearRejection: [
+                { percent: 10, text: '✋ מזהה את הפחד מדחיה...', icon: '✋' },
+                { percent: 20, text: '🔍 מאתרת את מקור הפחד...', icon: '🔍' },
+                { percent: 30, text: '📦 אוספת את כל הדחיות מהעבר...', icon: '📦' },
+                { percent: 40, text: '🧹 מנקה את הכאב מדחיות...', icon: '🧹' },
+                { percent: 50, text: '🗑️ מסירה את הפחד מדחיה...', icon: '🗑️' },
+                { percent: 60, text: '✨ דחיה היא לא אסון...', icon: '✨' },
+                { percent: 70, text: '💜 דחיה היא הכוונה למקום הנכון...', icon: '💜' },
+                { percent: 80, text: '💎 הערך שלך לא נפגע מדחיה...', icon: '💎' },
+                { percent: 90, text: '💗 משלימה את ההסרה...', icon: '💗' },
+                { percent: 100, text: '✅ הפחד מדחיה הוסר!', icon: '✋' }
+            ],
+            selfWorth: [
+                { percent: 10, text: '💎 מזהה את חוסר הערך העצמי...', icon: '💎' },
+                { percent: 20, text: '🔍 מאתרת את מקור חוסר הערך...', icon: '🔍' },
+                { percent: 30, text: '📦 אוספת את כל האמונות השליליות...', icon: '📦' },
+                { percent: 40, text: '🧹 מנקה את "אין לי ערך"...', icon: '🧹' },
+                { percent: 50, text: '🗑️ מסירה את חוסר הערך העצמי...', icon: '🗑️' },
+                { percent: 60, text: '✨ הערך שלך לא תלוי באף אחד...', icon: '✨' },
+                { percent: 70, text: '💜 הערך שלך לא תלוי בהישגים...', icon: '💜' },
+                { percent: 80, text: '💎 יש לך ערך רק כי את קיימת...', icon: '💎' },
+                { percent: 90, text: '💗 משלימה את ההסרה...', icon: '💗' },
+                { percent: 100, text: '✅ חוסר הערך העצמי הוסר!', icon: '💎' }
+            ],
+            selfLove: [
+                { percent: 10, text: '💗 מזהה את חוסר האהבה העצמית...', icon: '💗' },
+                { percent: 20, text: '🔍 מאתרת את מקור חוסר האהבה...', icon: '🔍' },
+                { percent: 30, text: '📦 אוספת את כל הביקורת העצמית...', icon: '📦' },
+                { percent: 40, text: '🧹 מנקה את השנאה העצמית...', icon: '🧹' },
+                { percent: 50, text: '🗑️ מסירה את חוסר האהבה העצמית...', icon: '🗑️' },
+                { percent: 60, text: '✨ את ראויה לאהבה שלך...', icon: '✨' },
+                { percent: 70, text: '💜 סולחת לעצמך על הכל...', icon: '💜' },
+                { percent: 80, text: '💗 מקבלת את עצמך כמו שאת...', icon: '💗' },
+                { percent: 90, text: '🌸 משלימה את ההסרה...', icon: '🌸' },
+                { percent: 100, text: '✅ חוסר האהבה העצמית הוסר!', icon: '💗' }
+            ],
+            innerSafety: [
+                { percent: 10, text: '🏠 מזהה את חוסר הביטחון הפנימי...', icon: '🏠' },
+                { percent: 20, text: '🔍 מאתרת את מקור חוסר הביטחון...', icon: '🔍' },
+                { percent: 30, text: '📦 אוספת את כל הפחדים...', icon: '📦' },
+                { percent: 40, text: '🧹 מנקה את חוסר הביטחון...', icon: '🧹' },
+                { percent: 50, text: '🗑️ מסירה את חוסר הביטחון הפנימי...', icon: '🗑️' },
+                { percent: 60, text: '✨ את הבית של עצמך...', icon: '✨' },
+                { percent: 70, text: '💜 הביטחון שלך לא תלוי בחוץ...', icon: '💜' },
+                { percent: 80, text: '🏠 מרגישה בטוחה בתוכך...', icon: '🏠' },
+                { percent: 90, text: '💗 משלימה את ההסרה...', icon: '💗' },
+                { percent: 100, text: '✅ חוסר הביטחון הפנימי הוסר!', icon: '🏠' }
+            ],
+            wholeness: [
+                { percent: 10, text: '⭕ מזהה את תחושת חוסר השלמות...', icon: '⭕' },
+                { percent: 20, text: '🔍 מאתרת את מקור חוסר השלמות...', icon: '🔍' },
+                { percent: 30, text: '📦 אוספת את האמונה "אני חצי"...', icon: '📦' },
+                { percent: 40, text: '🧹 מנקה את "חסר לי משהו"...', icon: '🧹' },
+                { percent: 50, text: '🗑️ מסירה את תחושת חוסר השלמות...', icon: '🗑️' },
+                { percent: 60, text: '✨ את לא חצי שמחפש חצי...', icon: '✨' },
+                { percent: 70, text: '💜 את עיגול שלם...', icon: '💜' },
+                { percent: 80, text: '⭕ תמיד היית שלמה...', icon: '⭕' },
+                { percent: 90, text: '💗 משלימה את ההסרה...', icon: '💗' },
+                { percent: 100, text: '✅ תחושת חוסר השלמות הוסרה!', icon: '⭕' }
+            ],
+            badPartners: [
+                { percent: 10, text: '🚷 מזהה את דפוס בחירת בני זוג לא טובים...', icon: '🚷' },
+                { percent: 20, text: '🔍 מאתרת את מקור הדפוס...', icon: '🔍' },
+                { percent: 30, text: '📦 אוספת את כל הבחירות הלא נכונות...', icon: '📦' },
+                { percent: 40, text: '🧹 מנקה את הצורך "להחזיק במישהו"...', icon: '🧹' },
+                { percent: 50, text: '🗑️ מסירה את הדפוס לגמרי...', icon: '🗑️' },
+                { percent: 60, text: '✨ את ראויה לבן זוג שמתאים לך...', icon: '✨' },
+                { percent: 70, text: '💜 את בוחרת מתוך ערך עצמי...', icon: '💜' },
+                { percent: 80, text: '💎 את בוחרת מי שבוחר בך באמת...', icon: '💎' },
+                { percent: 90, text: '💗 משלימה את ההסרה...', icon: '💗' },
+                { percent: 100, text: '✅ הדפוס הוסר לגמרי!', icon: '🚷' }
+            ],
+            overGiving: [
+                { percent: 10, text: '🎁 מזהה את הנתינה המוגזמת...', icon: '🎁' },
+                { percent: 20, text: '🔍 מאתרת את מקור הנתינה היתרה...', icon: '🔍' },
+                { percent: 30, text: '📦 אוספת את כל הפעמים שנתת יותר מדי...', icon: '📦' },
+                { percent: 40, text: '🧹 מנקה את הצורך "לקנות" אהבה...', icon: '🧹' },
+                { percent: 50, text: '🗑️ מסירה את הנתינה המוגזמת לגמרי...', icon: '🗑️' },
+                { percent: 60, text: '✨ את ראויה לאהבה בלי לשלם עליה...', icon: '✨' },
+                { percent: 70, text: '💜 את נותנת מתוך שפע ואהבה...', icon: '💜' },
+                { percent: 80, text: '⚖️ את שומרת על איזון בריא בנתינה וקבלה...', icon: '⚖️' },
+                { percent: 90, text: '💗 משלימה את ההחלמה...', icon: '💗' },
+                { percent: 100, text: '✅ הנתינה המוגזמת הוסרה לגמרי!', icon: '🎁' }
+            ],
+            peoplePleasing: [
+                { percent: 10, text: '🙇 מזהה את הריצוי המוגזם...', icon: '🙇' },
+                { percent: 20, text: '🔍 מאתרת את מקור הריצוי...', icon: '🔍' },
+                { percent: 30, text: '📦 אוספת את כל הפעמים שריצית...', icon: '📦' },
+                { percent: 40, text: '🧹 מנקה את "אני חייבת לרצות"...', icon: '🧹' },
+                { percent: 50, text: '🗑️ מסירה את הריצוי המוגזם לגמרי...', icon: '🗑️' },
+                { percent: 60, text: '✨ את אהובה בדיוק כמו שאת...', icon: '✨' },
+                { percent: 70, text: '💜 את חיה מתוך אותנטיות...', icon: '💜' },
+                { percent: 80, text: '👑 את שומרת על כבוד עצמי...', icon: '👑' },
+                { percent: 90, text: '💗 משלימה את ההחלמה...', icon: '💗' },
+                { percent: 100, text: '✅ הריצוי המוגזם הוסר לגמרי!', icon: '🙇' }
+            ],
+            suspicion: [
+                { percent: 10, text: '🔎 מזהה את החשדנות...', icon: '🔎' },
+                { percent: 20, text: '🔍 מאתרת את מקור החשדנות...', icon: '🔍' },
+                { percent: 30, text: '📦 אוספת את כל החשדות...', icon: '📦' },
+                { percent: 40, text: '🧹 מנקה את הצורך לחפש בעיות...', icon: '🧹' },
+                { percent: 50, text: '🗑️ מסירה את החשדנות לגמרי...', icon: '🗑️' },
+                { percent: 60, text: '✨ את בוטחת בעצמך ובבחירות שלך...', icon: '✨' },
+                { percent: 70, text: '💜 את חיה מתוך אמון ושלווה...', icon: '💜' },
+                { percent: 80, text: '🕊️ את נהנית משקט פנימי...', icon: '🕊️' },
+                { percent: 90, text: '💗 משלימה את ההחלמה...', icon: '💗' },
+                { percent: 100, text: '✅ החשדנות הוסרה לגמרי!', icon: '🔎' }
+            ],
+            stalking: [
+                { percent: 10, text: '👁️ מזהה את הצורך במעקב...', icon: '👁️' },
+                { percent: 20, text: '🔍 מאתרת את מקור המעקב...', icon: '🔍' },
+                { percent: 30, text: '📦 אוספת את כל הדחפים לעקוב...', icon: '📦' },
+                { percent: 40, text: '🧹 מנקה את הצורך לשלוט...', icon: '🧹' },
+                { percent: 50, text: '🗑️ מסירה את הדחף לעקוב לגמרי...', icon: '🗑️' },
+                { percent: 60, text: '✨ את מרגישה בטוחה מבפנים...', icon: '✨' },
+                { percent: 70, text: '💜 את חיה מתוך ביטחון פנימי...', icon: '💜' },
+                { percent: 80, text: '🏠 את נחה בתוך עצמך...', icon: '🏠' },
+                { percent: 90, text: '💗 משלימה את ההחלמה...', icon: '💗' },
+                { percent: 100, text: '✅ הצורך במעקב הוסר לגמרי!', icon: '👁️' }
+            ],
+            emotionalDependency: [
+                { percent: 10, text: '⛓️ מזהה את התלות הרגשית...', icon: '⛓️' },
+                { percent: 20, text: '🔍 מאתרת את מקור התלות...', icon: '🔍' },
+                { percent: 30, text: '📦 אוספת את כל דפוסי התלות...', icon: '📦' },
+                { percent: 40, text: '🧹 מנקה את "אני לא יכולה בלעדיו"...', icon: '🧹' },
+                { percent: 50, text: '🗑️ מסירה את התלות הרגשית לגמרי...', icon: '🗑️' },
+                { percent: 60, text: '✨ את מווסתת את עצמך בעצמך...', icon: '✨' },
+                { percent: 70, text: '💜 את שלמה ועצמאית רגשית...', icon: '💜' },
+                { percent: 80, text: '💪 את חזקה ויציבה מבפנים...', icon: '💪' },
+                { percent: 90, text: '💗 משלימה את ההחלמה...', icon: '💗' },
+                { percent: 100, text: '✅ התלות הרגשית הוסרה לגמרי!', icon: '⛓️' }
+            ],
+            losingMyself: [
+                { percent: 10, text: '👻 מזהה את איבוד העצמי בזוגיות...', icon: '👻' },
+                { percent: 20, text: '🔍 מאתרת את מקור הדפוס...', icon: '🔍' },
+                { percent: 30, text: '📦 אוספת את כל הפעמים שאיבדת את עצמך...', icon: '📦' },
+                { percent: 40, text: '🧹 מנקה את "אני לא חשובה"...', icon: '🧹' },
+                { percent: 50, text: '🗑️ מסירה את איבוד העצמי לגמרי...', icon: '🗑️' },
+                { percent: 60, text: '✨ את שומרת על עצמך בכל מערכת יחסים...', icon: '✨' },
+                { percent: 70, text: '💜 הצרכים שלך חשובים ומקודשים...', icon: '💜' },
+                { percent: 80, text: '🌟 את נשארת את תמיד...', icon: '🌟' },
+                { percent: 90, text: '💗 משלימה את ההחלמה...', icon: '💗' },
+                { percent: 100, text: '✅ הדפוס הוסר לגמרי!', icon: '👻' }
+            ],
+            jealousy: [
+                { percent: 10, text: '💚 מזהה את הקנאה החולנית...', icon: '💚' },
+                { percent: 20, text: '🔍 מאתרת את מקור הקנאה...', icon: '🔍' },
+                { percent: 30, text: '📦 אוספת את כל רגעי הקנאה...', icon: '📦' },
+                { percent: 40, text: '🧹 מנקה את "אני לא מספיק טובה"...', icon: '🧹' },
+                { percent: 50, text: '🗑️ מסירה את הקנאה החולנית לגמרי...', icon: '🗑️' },
+                { percent: 60, text: '✨ את מושלמת בדיוק כמו שאת...', icon: '✨' },
+                { percent: 70, text: '💜 את בטוחה בערך הייחודי שלך...', icon: '💜' },
+                { percent: 80, text: '💎 את יודעת שאת מספיק...', icon: '💎' },
+                { percent: 90, text: '💗 משלימה את ההחלמה...', icon: '💗' },
+                { percent: 100, text: '✅ הקנאה החולנית הוסרה לגמרי!', icon: '💚' }
+            ],
+            allPatterns: [
+                { percent: 10, text: '🛑 מזהה את כל הדפוסים ההרסניים...', icon: '🛑' },
+                { percent: 20, text: '🚷 מסירה בחירת בני זוג לא טובים...', icon: '🚷' },
+                { percent: 30, text: '🎁 מסירה נתינה מוגזמת וריצוי...', icon: '🎁' },
+                { percent: 40, text: '🔎 מסירה חשדנות ומעקב...', icon: '🔎' },
+                { percent: 50, text: '⛓️ מסירה תלות רגשית...', icon: '⛓️' },
+                { percent: 60, text: '👻 מסירה איבוד עצמי בזוגיות...', icon: '👻' },
+                { percent: 70, text: '💚 מסירה קנאה חולנית...', icon: '💚' },
+                { percent: 80, text: '✨ את בוחרת מתוך אהבה עצמית ושלמות...', icon: '✨' },
+                { percent: 90, text: '💜 את ראויה לזוגיות בריאה ומאוזנת...', icon: '💜' },
+                { percent: 100, text: '✅ כל הדפוסים ההרסניים הוסרו לגמרי!', icon: '🛑' }
+            ]
+        };
+        
+        function startProcess(type) {
+            document.getElementById(type + 'Overlay').classList.add('active');
+            document.getElementById(type + 'Progress').style.width = '0%';
+            document.getElementById(type + 'Complete').classList.remove('show');
+            document.getElementById(type + 'Btn').disabled = false;
+            
+            if (type === 'emergency' || type === 'allPatterns') {
+                document.getElementById(type + 'Btn').textContent = '🛑 התחל/י הפסקה';
+            } else {
+                document.getElementById(type + 'Btn').textContent = '🗑️ התחל/י הסרה';
+            }
+        }
+        
+        function closeOverlay(type) {
+            document.getElementById(type + 'Overlay').classList.remove('active');
+        }
+        
+        function runProcess(type) {
+            const btn = document.getElementById(type + 'Btn');
+            const progress = document.getElementById(type + 'Progress');
+            const text = document.getElementById(type + 'Text');
+            const icon = document.getElementById(type + 'Icon');
+            const stages = processStages[type];
+            
+            btn.disabled = true;
+            btn.textContent = '⏳ בתהליך...';
+            
+            let stage = 0;
+            const interval = setInterval(() => {
+                if (stage < stages.length) {
+                    progress.style.width = stages[stage].percent + '%';
+                    text.textContent = stages[stage].text;
+                    icon.textContent = stages[stage].icon;
+                    stage++;
+                } else {
+                    clearInterval(interval);
+                    document.getElementById(type + 'Complete').classList.add('show');
+                    btn.disabled = false;
+                    if (type === 'emergency' || type === 'allPatterns') {
+                        btn.textContent = '🛑 התחל/י הפסקה';
+                    } else {
+                        btn.textContent = '🗑️ התחל/י הסרה';
+                    }
+                }
+            }, 4000);
+        }
+    </script>
+</body>
+</html>
